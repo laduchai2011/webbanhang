@@ -1,0 +1,111 @@
+.ProductInforBlock {
+    /* text-align: center; */
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.ProductInforBlock > div {
+    width: 100%;
+}
+
+.ProductInforBlock > div > div {
+    text-align: center;
+}
+
+.ProductInforBlock-img {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    margin-bottom: 5px;
+    background-color: antiquewhite;
+}
+
+.ProductInforBlock-imgContainer {
+    background-color: red;
+    height: 240px;
+}
+
+.ProductInforBlock-imgContainer > img {
+    width: 80%;
+    height: 100%;
+}
+
+.ProductInforBlock-amount {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid #ccc;
+}
+
+.ProductInforBlock-amount > div {
+    display: flex;
+    align-items: center;
+}
+
+.ProductInforBlock-amount > div:hover {
+    cursor: pointer;
+}
+
+.ProductInforBlock-pre {
+    background-color: antiquewhite;
+    width: 100%;
+    min-height: 0px;
+    max-height: 250px;
+    white-space: normal;      
+    /* white-space: -moz-pre-wrap;  
+    white-space: -pre-wrap;      
+    white-space: -o-pre-wrap;     */
+    word-wrap: break-word;  
+    
+    /* overflow: hidden; */
+    /* overflow-y: scroll; */
+    /* scroll-snap-type: y mandatory; */
+}
+
+.ProductInforBlock-pre::-webkit-scrollbar {
+    width: 5px;
+}   
+
+/* Track */
+.ProductInforBlock-pre::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+/* Handle */
+.ProductInforBlock-pre::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+pre::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+.ProductInforBlock-pre-des {
+    max-height: 110px;
+    height: auto;
+}
+
+.ProductInforBlock-productOptions {
+    /* display: flex;
+    justify-content: space-around;
+    width: 100%; */
+    border-top: 1px solid #ccc;
+}
+
+.ProductInforBlock-productOptions > div {
+    width: 40%;
+    display: flex;
+    margin-bottom: 5px;margin-top: 5px;
+    width: 100%;
+}
+
+.ProductInforBlock-productOptions > div > input {
+    width:20%;
+    margin-left: 5px;
+}
+
+.ProductInforBlock-btn > div {
+    justify-content: space-around;
+    display: flex;
+}

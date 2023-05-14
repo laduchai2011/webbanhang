@@ -1,0 +1,13 @@
+.MessageContainer_Header {
+    /* background-color: blue; */
+}
+
+.MessageContainer_Header > div {
+    margin-bottom: 10px;
+}
+
+.MessageContainer_Header-allMessages {
+    background-color: black;
+    justify-content: center;
+    display: flex;
+}

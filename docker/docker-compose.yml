@@ -1,0 +1,255 @@
+version: '3.8'
+
+services:
+  nginx:
+    container_name: nginx
+    build:
+      context: ../nginx
+      dockerfile: Dockerfile
+    networks:
+      - webbanhang
+    restart: "always"
+    ports:
+      - 80:80
+    # expose: 
+    #   - 80
+    depends_on:
+      - reactapp1
+      - reactapp2
+      - reactapp3
+      - nodeapp1
+      - nodeapp2
+      - nodeapp3
+      - chatapp1
+      - chatapp2
+      - chatapp3
+  
+#------------------REDIS--------------------------
+  redis:
+    container_name: redis
+    build: 
+      context: ../redis
+      dockerfile: Dockerfile
+    networks:
+      - webbanhang
+    restart: "always"
+    volumes:
+      - redisvolume:/data
+    ports:
+      - 6379:6379
+#-------------------------------------------------
+
+#------------------SQL SERVER---------------------
+  sqlserver: # insert, update
+    container_name: sqlserver
+    build:
+      context: ../SQL-Server
+      dockerfile: Dockerfile
+    ports:
+      - "${SQLCONFIG_LOCALPORT}:${SQLCONFIG_PORT}"
+    environment:
+      SA_PASSWORD: "${SQLCONFIG_PASSWORD}"
+      ACCEPT_EULA: "Y"
+    networks:
+      - webbanhang
+    restart: "always"
+    volumes:
+      - sqlvolume:/var/opt/mssql
+#--------------------------------------------------
+
+#----------------------reactjs----------------------
+  reactapp1:
+    container_name: reactapp1
+    build:
+      context: ../reactjs/webbanhang
+      dockerfile: Dockerfile
+      # args:
+      #   - REACT_APP_API_KEY=localhost
+      #   - REACT_APP_CHATAPI_KEY=localhost
+    networks:
+      - webbanhang
+    restart: "always"
+
+  reactapp2:
+    container_name: reactapp2
+    build:
+      context: ../reactjs/webbanhang
+      dockerfile: Dockerfile
+      # args:
+      #   - REACT_APP_API_KEY=localhost
+      #   - REACT_APP_CHATAPI_KEY=localhost
+    networks:
+      - webbanhang
+    restart: "always"
+    
+  reactapp3:
+    container_name: reactapp3
+    build:
+      context: ../reactjs/webbanhang
+      dockerfile: Dockerfile
+      # args:
+      #   - REACT_APP_API_KEY=localhost
+      #   - REACT_APP_CHATAPI_KEY=localhost
+    networks:
+      - webbanhang
+    restart: "always"
+#---------------------------------------------------------
+
+#--------------------------nodejs-------------------------------
+  nodeapp1:
+    container_name: nodeapp1
+    build:
+      context: ../nodejs/webbanhang
+      dockerfile: Dockerfile
+    networks:
+      - webbanhang
+    restart: "always"
+    volumes:
+      - nodejs-public:/app/prod-build-optimization/public
+    environment:
+      - NODE_SERVER_PORT_KEY=4000
+      - "SQLCONFIG_USER=${SQLCONFIG_USER}"
+      - "SQLCONFIG_PASSWORD=${SQLCONFIG_PASSWORD}"
+      - "SQLCONFIG_DATABASE=${SQLCONFIG_DATABASE}"
+      - "SQLCONFIG_SERVER=${SQLCONFIG_SERVER}"
+      - "SQLCONFIG_PORT=${SQLCONFIG_PORT}"
+      - "REDISCONFIG_USER=${REDISCONFIG_USER}"
+      - "REDISCONFIG_PASSWORD=${REDISCONFIG_PASSWORD}"
+      - "REDISCONFIG_SERVER=${REDISCONFIG_SERVER}"
+      - "REDISCONFIG_PORT=${REDISCONFIG_PORT}"
+    depends_on:
+      - sqlserver
+      - redis
+  
+  nodeapp2:
+    container_name: nodeapp2
+    build:
+      context: ../nodejs/webbanhang
+      dockerfile: Dockerfile
+    networks:
+      - webbanhang
+    restart: "always"
+    volumes:
+      - nodejs-public:/app/prod-build-optimization/public
+    environment:
+      - NODE_SERVER_PORT_KEY=4000
+      - "SQLCONFIG_USER=${SQLCONFIG_USER}"
+      - "SQLCONFIG_PASSWORD=${SQLCONFIG_PASSWORD}"
+      - "SQLCONFIG_DATABASE=${SQLCONFIG_DATABASE}"
+      - "SQLCONFIG_SERVER=${SQLCONFIG_SERVER}"
+      - "SQLCONFIG_PORT=${SQLCONFIG_PORT}"
+      - "REDISCONFIG_USER=${REDISCONFIG_USER}"
+      - "REDISCONFIG_PASSWORD=${REDISCONFIG_PASSWORD}"
+      - "REDISCONFIG_SERVER=${REDISCONFIG_SERVER}"
+      - "REDISCONFIG_PORT=${REDISCONFIG_PORT}"
+    depends_on:
+      - sqlserver
+      - redis
+
+  nodeapp3:
+    container_name: nodeapp3
+    build:
+      context: ../nodejs/webbanhang
+      dockerfile: Dockerfile
+    networks:
+      - webbanhang
+    restart: "always"
+    volumes:
+      - nodejs-public:/app/prod-build-optimization/public
+    environment:
+      - NODE_SERVER_PORT_KEY=4000
+      - "SQLCONFIG_USER=${SQLCONFIG_USER}"
+      - "SQLCONFIG_PASSWORD=${SQLCONFIG_PASSWORD}"
+      - "SQLCONFIG_DATABASE=${SQLCONFIG_DATABASE}"
+      - "SQLCONFIG_SERVER=${SQLCONFIG_SERVER}"
+      - "SQLCONFIG_PORT=${SQLCONFIG_PORT}"
+      - "REDISCONFIG_USER=${REDISCONFIG_USER}"
+      - "REDISCONFIG_PASSWORD=${REDISCONFIG_PASSWORD}"
+      - "REDISCONFIG_SERVER=${REDISCONFIG_SERVER}"
+      - "REDISCONFIG_PORT=${REDISCONFIG_PORT}"
+    depends_on:
+      - sqlserver
+      - redis
+#----------------------------------------------------
+
+#--------------------chat---------------------------
+  chatapp1:
+    container_name: chatapp1
+    build:
+      context: ../chatApp
+      dockerfile: Dockerfile
+    networks:
+      - webbanhang
+    restart: "always"
+    environment:
+      - NODE_SERVER_PORT_KEY=5000
+      - "SQLCONFIG_USER=${SQLCONFIG_USER}"
+      - "SQLCONFIG_PASSWORD=${SQLCONFIG_PASSWORD}"
+      - "SQLCONFIG_DATABASE=${SQLCONFIG_DATABASE}"
+      - "SQLCONFIG_SERVER=${SQLCONFIG_SERVER}"
+      - "SQLCONFIG_PORT=${SQLCONFIG_PORT}"
+      - "REDISCONFIG_USER=${REDISCONFIG_USER}"
+      - "REDISCONFIG_PASSWORD=${REDISCONFIG_PASSWORD}"
+      - "REDISCONFIG_SERVER=${REDISCONFIG_SERVER}"
+      - "REDISCONFIG_PORT=${REDISCONFIG_PORT}"
+    depends_on:
+      - sqlserver
+      - redis
+
+  chatapp2:
+    container_name: chatapp2
+    build:
+      context: ../chatApp
+      dockerfile: Dockerfile
+    networks:
+      - webbanhang
+    restart: "always"
+    environment:
+      - NODE_SERVER_PORT_KEY=5000
+      - "SQLCONFIG_USER=${SQLCONFIG_USER}"
+      - "SQLCONFIG_PASSWORD=${SQLCONFIG_PASSWORD}"
+      - "SQLCONFIG_DATABASE=${SQLCONFIG_DATABASE}"
+      - "SQLCONFIG_SERVER=${SQLCONFIG_SERVER}"
+      - "SQLCONFIG_PORT=${SQLCONFIG_PORT}"
+      - "REDISCONFIG_USER=${REDISCONFIG_USER}"
+      - "REDISCONFIG_PASSWORD=${REDISCONFIG_PASSWORD}"
+      - "REDISCONFIG_SERVER=${REDISCONFIG_SERVER}"
+      - "REDISCONFIG_PORT=${REDISCONFIG_PORT}"
+    depends_on:
+      - sqlserver
+      - redis
+
+  chatapp3:
+    container_name: chatapp3
+    build:
+      context: ../chatApp
+      dockerfile: Dockerfile
+    networks:
+      - webbanhang
+    restart: "always"
+    environment:
+      - NODE_SERVER_PORT_KEY=5000
+      - "SQLCONFIG_USER=${SQLCONFIG_USER}"
+      - "SQLCONFIG_PASSWORD=${SQLCONFIG_PASSWORD}"
+      - "SQLCONFIG_DATABASE=${SQLCONFIG_DATABASE}"
+      - "SQLCONFIG_SERVER=${SQLCONFIG_SERVER}"
+      - "SQLCONFIG_PORT=${SQLCONFIG_PORT}"
+      - "REDISCONFIG_USER=${REDISCONFIG_USER}"
+      - "REDISCONFIG_PASSWORD=${REDISCONFIG_PASSWORD}"
+      - "REDISCONFIG_SERVER=${REDISCONFIG_SERVER}"
+      - "REDISCONFIG_PORT=${REDISCONFIG_PORT}"
+    depends_on:
+      - sqlserver
+      - redis
+#--------------------------------------------------
+
+networks:
+  webbanhang:
+    driver: bridge
+volumes:
+  nodejs-public:
+    driver: local
+  sqlvolume:
+    driver: local
+  redisvolume:
+    driver: local

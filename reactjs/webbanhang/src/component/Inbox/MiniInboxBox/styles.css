@@ -1,0 +1,78 @@
+.MiniInboxBox {
+    /* position: relative; */
+    /* bottom: 0px; */
+    width: 300px;
+    margin-left: 10px;
+    height: 380px;
+    /* display: none; */
+    max-height: 700px;
+    /* height: 500px; */
+    background-color: red;
+    /* bottom: 0; */
+    z-index: 100;
+    position: sticky;
+}
+
+.MiniInboxBox-inbox {
+    width: 300px;
+    justify-content: flex-end;
+    display: flex;
+    flex-direction: column;
+}
+
+.MiniInboxBox-top {
+    background-color: #5295fb;
+    height: 40px;
+    width: 100%;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom: 1px solid black;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+}
+
+.MiniInboxBox-top > div {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.MiniInboxBox-top-name {
+    margin-left: 18px;
+}
+
+.MiniInboxBox-top-delete {
+    margin-right: 15px; 
+    cursor: pointer;
+}
+
+.MiniInboxBox-body {
+    width: 100%;
+    height: 300px;
+    min-height: 150px;
+    background-color: white;
+    border-bottom: 1px solid black;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    /* scroll-behavior: smooth; */
+    justify-content: flex-end;
+    display: flex;
+    flex-direction: column;
+}
+
+.MiniInboxBox-bottom {
+    height: 40px;
+    background-color: #cfd1d3;
+    display: flex;
+    justify-content: center;
+    max-height: 200px;
+}
+
+.MiniInboxBox-bottom > textarea {
+    margin-top: 3px;
+    width: 80%;
+    height: 60%;
+    border-radius: 10px;
+    resize: none;
+}

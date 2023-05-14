@@ -1,0 +1,33 @@
+.MessageBox {
+    /* background-color: red; */
+}
+
+.MessageBox-left {
+    width: 100%;
+    justify-content: flex-start;
+    display: flex;
+}
+
+.MessageBox-left > div {
+    max-width: 60%;
+    word-wrap: break-word; 
+    margin-bottom: 7px;
+    margin-left: 2px;
+    background-color: #f6f3f5;
+    border-radius: 10px;
+}
+
+.MessageBox-right {
+    width: 100%;
+    justify-content: flex-end;
+    display: flex;
+}
+
+.MessageBox-right > div {
+    max-width: 60%;
+    word-wrap: break-word; 
+    margin-bottom: 7px;
+    margin-right: 2px;
+    background-color: #09c8ff;
+    border-radius: 10px;
+}

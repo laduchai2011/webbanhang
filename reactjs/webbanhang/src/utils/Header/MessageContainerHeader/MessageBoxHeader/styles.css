@@ -1,0 +1,29 @@
+.MessageBoxHeader {
+    background-color: white;
+    margin-bottom: 0px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 10px;
+}
+
+.MessageBoxHeader:hover {
+    background-color: azure;
+}
+
+.MessageBoxHeader > div {
+    display: flex;
+}
+
+.MessageBoxHeader-text {
+    color: black;
+}
+
+.MessageBoxHeader-number {
+    background-color: red;
+    justify-content: center;
+    display: flex;
+    width: 20px;
+    height: 20px;
+    margin-left: 25px;
+    border-radius: 20px;
+}

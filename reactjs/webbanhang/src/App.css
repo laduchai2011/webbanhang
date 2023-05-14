@@ -1,0 +1,16 @@
+.App {
+    
+}
+
+ul {
+    list-style-type: none;
+}
+
+.nav-link {
+    /* xoa gach chan the link react-router-dom */
+    text-decoration: none; 
+}
+
+.nav-link:hover {
+    color: white;
+}

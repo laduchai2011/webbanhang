@@ -1,0 +1,22 @@
+.ProductSearchBlock {
+    background-color: yellow;
+}
+
+.ProductSearchBlock-optionContainer{
+    display: flex;
+}
+
+.ProductSearchBlock-optionContainer > div {
+    margin: 10px;
+    margin-bottom: 30px;
+}
+
+.ProductSearchBlock-inputContainer {
+    width: 60%;
+    margin-bottom: 20px;
+}
+
+.ProductSearchBlock-input {
+    display: flex;
+    justify-content: space-between;
+}

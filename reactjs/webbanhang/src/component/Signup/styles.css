@@ -1,0 +1,60 @@
+.Signup {
+    height: 100vh;
+    background: linear-gradient(#fffeea, #ebfeb7, #ffb6b6);
+}
+
+.inforcontainer {
+    text-align: center;
+}
+
+.inputContainer {
+    margin-top: 80px;
+}
+
+.inputContainer > input {
+    height: 30px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.btnContainer {
+    margin-top: 50px;
+}
+
+.btnContainer > button {
+    margin: 50px;
+    width: 125px;
+    height: 25px;
+}
+
+.note {
+    margin-top: 100px;
+}
+
+/* ip12-pro: max with 390px*/
+@media only screen and (max-width: 400px) {
+
+}
+
+/* samsung galaxy A51/71: 412px*/
+@media only screen and (max-width: 500px) {
+    .btnContainer > button {
+        margin: 10px;
+        width: 100%;
+        height: 25px;
+    }
+
+    .inputContainer {
+        margin-top: 10px;
+    }
+
+    .btnContainer > button {
+        width: 70%;
+        height: 50px;
+    }
+
+    .note {
+        margin-top: 100px;
+    }
+}

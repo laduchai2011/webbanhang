@@ -1,0 +1,38 @@
+{
+  "name": "webbanhang",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "start:dev": "node ./dev-build/main.js",
+    "build:dev": "webpack --config webpack.dev.js --mode development",
+    "start:prod": "node ./prod-build/main.js",
+    "start:prod:optimization": "node ./prod-build-optimization/main.js",
+    "build:prod": "webpack --config webpack.prod.js --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-fileupload": "^1.4.0",
+    "jsonwebtoken": "^9.0.0",
+    "mssql": "^9.1.1",
+    "nodemon": "^2.0.22",
+    "redis": "^4.6.6",
+    "terser-webpack-plugin": "^5.3.8",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.8",
+    "babel-loader": "^9.1.2",
+    "webpack": "^5.82.0",
+    "webpack-cli": "^5.1.0",
+    "webpack-dev-server": "^4.15.0",
+    "webpack-node-externals": "^3.0.0"
+  }
+}

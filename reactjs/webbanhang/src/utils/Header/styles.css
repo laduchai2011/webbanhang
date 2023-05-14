@@ -1,0 +1,103 @@
+.Header {
+    display: flex;
+    margin-top: 0px;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.Header > div {
+    flex-direction: row;
+    display: flex;
+}
+
+.HeaderComponent {
+    margin: 10px;
+}
+
+.HeaderComponent:hover {
+    background-color: #d7dae3;
+    border-radius: 5px;
+}
+
+.Header-iconContainer {
+    margin-right: 200px;
+    align-items: center;
+}
+
+.Header-iconContainer > div {
+    position: relative;
+    cursor: pointer;
+}
+
+.Header-notifiNumber {
+    position: absolute;
+    top: 12px;
+    left: 7px;
+    z-index: 2;
+    background-color: red;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.Header-iconContainer > div > div > div {
+    color: white;
+    z-index: 3;
+}
+
+.Header-icon {
+    margin: 0 5px 0 5px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+}
+
+.Header-avatar {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.Header-messageContainer {
+    background-color: #ecebf1;
+    width: 200px;
+    max-height: 500px;
+    position: absolute;
+    margin-top: 8px;
+    border-radius: 10px;
+    display: none;
+}
+
+/* ip12-pro: max with 390px*/
+@media only screen and (max-width: 400px) {
+
+}
+
+/* samsung galaxy A51/71: 412px*/
+@media only screen and (max-width: 500px) {
+    /* .HeaderComponent {
+        margin: 15px;
+    } */
+
+    .Header {
+        /* flex-direction: row;
+        display: flex;
+        margin-top: 0px;
+        justify-content: flex-start; */
+        display: flex;
+        margin-top: 0px;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .Header-iconContainer {
+        margin-right: 100px;
+        align-items: center;
+    }
+}

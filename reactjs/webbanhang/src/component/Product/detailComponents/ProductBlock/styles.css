@@ -1,0 +1,38 @@
+.ProductBlock {
+    /* display: flex;
+    justify-content: space-around;
+    margin-bottom: 3px; */
+}
+
+.ProductBlock > div {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 3px;
+}
+
+.ProductBlock-box {
+    width: 100%;
+}
+
+/* samsung galaxy A51/71: 412px*/
+@media only screen and (max-width: 500px) {
+    .ProductBlock > div {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .ProductBlock > div > div {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .ProductBlock > div > div {
+        width: 100%;
+    }
+
+    /* .ProductBlock-box {
+        width: 100%;
+        background-color: aqua;
+    } */
+}

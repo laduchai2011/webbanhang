@@ -1,0 +1,7 @@
+.ProductImgBlock {
+    display: flex;
+}
+
+.ProductImgBlock > div {
+    margin: 5px;
+}

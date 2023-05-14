@@ -1,0 +1,36 @@
+.ProductDetailPay {
+    background-color: white;
+}
+
+.ProductDetailPay-orderInfor {
+    margin-top: 10px;
+    border-top: 1px solid #ccc;
+    height: 200px;
+}
+
+.ProductDetailPay-orderInfor > div {
+    display: flex;
+    width: 100%;
+    margin: 5px 0 5px 0;
+}
+
+.ProductDetailPay-orderInfor > div > div {
+    width: 50%;
+}
+
+.ProductDetailPay-orderInfor-number {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ProductDetailPay-orderInfor-number > input {
+    width: 40px;
+}
+
+.ProductDetailPay-orderInfor-number-total {
+    border-top: 1px solid #ccc;
+}
+
+.ProductDetailPay-payInfor > div {
+
+}

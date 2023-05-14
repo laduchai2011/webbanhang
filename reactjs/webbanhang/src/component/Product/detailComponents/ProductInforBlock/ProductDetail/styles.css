@@ -1,0 +1,29 @@
+.ProductDetail {
+    background-color: antiquewhite;
+    display: flex;
+}
+
+.ProductDetail > div{
+    background-color: aqua;
+    margin: 10px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+.ProductDetail-column1 {
+    width: 20%;
+    position: sticky;
+    top: 0px;
+    height: 100%;
+}
+
+.ProductDetail-column2 {
+    width: 50%;
+}
+
+.ProductDetail-column3 {
+    width: 30%;
+    position: sticky;
+    top: 0px;
+    height: 100%;
+}

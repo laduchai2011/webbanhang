@@ -1,0 +1,27 @@
+.AddProduct {
+    justify-content: center;
+    display: flex;
+    margin-top: 40px;
+}
+
+.AddProduct-container {
+    margin-bottom: 10px;
+    width: 40vw;
+}
+
+.AddProduct-container-amount-price-sale-VAT > div {
+    display: flex;
+}
+
+.AddProduct-container-amount-price-sale-VAT > div > input {
+    margin-right: 5px;
+}
+
+.AddProduct-container-amount-price-sale-VAT > div > div {
+    margin-right: 5px;
+}
+
+.AddProduct-container-amount-price-sale-VAT-note {
+    color: red;
+    display: none;
+}
