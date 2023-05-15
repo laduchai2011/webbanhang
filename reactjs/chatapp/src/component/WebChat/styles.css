@@ -1,0 +1,56 @@
+.WebChat {
+    width: 100vw;
+    height: 100vh;
+}
+
+.WebChat > div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    /* background-color: aqua; */
+}
+
+.webChat-Header-top {
+    height: 5%;
+    font-weight: 1000;
+    font-size: larger;
+    text-align: center;
+    /* border: 1px solid black; */
+}
+
+.webChat-Left {
+    /* background-color: red; */
+    width: 20%;
+    height: 100%;
+}
+
+.webChat-Left-List {
+    /* background-color: antiquewhite; */
+    height: 95%;
+}
+
+.webChat-Left-List > div {
+    overflow-y: scroll;
+    height: 100%;
+}
+
+.webChat-Center {
+    /* background-color: yellow; */
+    width: 55%;
+    height: 100%;
+}
+
+.webChat-Center-Message {
+    background-color: antiquewhite;
+    height: 95%;
+}
+
+.webChat-Center-Message > div {
+    height: 100%;
+}
+
+.webChat-Right {
+    /* background-color: blue; */
+    width: 25%;
+    height: 100%;
+}

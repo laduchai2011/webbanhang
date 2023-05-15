@@ -52,7 +52,7 @@ const Product = () => {
                     }
                 })
                 if (res.data.state) {
-                    dataLen = res.data.data.rowsAffected[1];
+                    dataLen.current = res.data.data.rowsAffected[1];
                     if (res.data.data.rowsAffected[1] < pageSize) {
                         remainState.current = false;
                     }

@@ -1,0 +1,33 @@
+.webChat-MessageContainer {
+    background-color: #f3f3f3;
+}
+
+.webChat-MessageContainer-Message {
+    background-color: bisque;
+    height: 95%;
+    overflow-y: scroll;
+}
+
+.webChat-MessageContainer-Input {
+    height: 5%;
+    display: flex;
+}
+
+.webChat-MessageContainer-Input > textarea {
+    width: 93%;
+    border-radius: 10px;
+    resize: none;
+    font-size: 16px;
+}
+
+.webChat-MessageContainer-Input-SendIcon {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 7%;
+    align-items: center;
+}
+
+.webChat-MessageContainer-Input-SendIcon > div {
+    cursor: pointer;
+}

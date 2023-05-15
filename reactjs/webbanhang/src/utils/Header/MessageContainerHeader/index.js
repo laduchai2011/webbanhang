@@ -1,14 +1,19 @@
 import React, { memo } from 'react';
 import './styles.css';
 
+import { useNavigate } from 'react-router-dom';
 
 import MessageBoxHeader from './MessageBoxHeader';
+import { USERINFOR } from '../../Constant';
 
 
 const MessageContainerHeader = ({onData}) => {
 
+    const navigate = useNavigate();
+
     const handleAllMessages = () => {
-        alert('Tính năng sắp ra mắt');
+        navigate(`/webChat`, { state: {data: 'webchat123456'}});
+        // navigate(`/webChat/${USERINFOR.User_Id}`, { state: {data: 'webchat123456'}});
     }
 
     const load_MessageBoxHeader = onData && onData.map((data, index) => {

@@ -1,0 +1,26 @@
+.webChat-Message {
+    width: 100%;
+}
+
+.webChat-Message-left {
+    background-color: #f6f3f5;
+    width: 70%;
+    margin-bottom: 5px;
+    word-wrap: break-word; 
+    border-radius: 10px;
+    margin-left: 2px;
+}   
+
+.webChat-Message-right {
+    justify-content: flex-end;
+    display: flex;
+}
+
+.webChat-Message-right > div {
+    background-color: #09c8ff;
+    width: 70%;
+    margin-bottom: 5px;
+    word-wrap: break-word; 
+    border-radius: 10px;
+    margin-left: 2px;
+}
