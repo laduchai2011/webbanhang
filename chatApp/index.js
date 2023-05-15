@@ -153,7 +153,7 @@ io.on('connection', (client) => {
     // server listen messages is sent, tranfer it to all user
     // note: Messages_ChatRoom_Id is roomid (in database)
     client.on('message-roomId-inDatabase', message => {
-        console.log('message-roomId-inDatabase', message)
+        // console.log('message-roomId-inDatabase', message)
         let messageOptions_1 = message;
         messageOptions_1.Messages_Id = uuidv4();
         myQuery.addMessage(messageOptions_1, (err, data) => {
@@ -166,51 +166,51 @@ io.on('connection', (client) => {
     })
 
 
-    // send to receiver
-    client.on('client-server-chatInvitation', receiveUserInfor => {
-        pubClient.get(`socketId-${receiveUserInfor.Invite_User_Id}`).then(socketId => {
-            if (socketId !== null) { 
-                // sender send a RoomId (in database) to receiver and serder join a RoomId (in database)
-                const roomId_inDatabase = receiveUserInfor.ChatRomms_Id;
-                client.join(roomId_inDatabase);
-                rooms.push(roomId_inDatabase);
-                client.to(socketId).emit('server-client-chatInvitation', roomId_inDatabase);
-            } else {
-                // receiver is not online
-            }
-        })
-    })
+    // // send to receiver
+    // client.on('client-server-chatInvitation', receiveUserInfor => {
+    //     pubClient.get(`socketId-${receiveUserInfor.Invite_User_Id}`).then(socketId => {
+    //         if (socketId !== null) { 
+    //             // sender send a RoomId (in database) to receiver and serder join a RoomId (in database)
+    //             const roomId_inDatabase = receiveUserInfor.ChatRomms_Id;
+    //             client.join(roomId_inDatabase);
+    //             rooms.push(roomId_inDatabase);
+    //             client.to(socketId).emit('server-client-chatInvitation', roomId_inDatabase);
+    //         } else {
+    //             // receiver is not online
+    //         }
+    //     })
+    // })
 
-    // receiver accept auto
-    client.on('client-server-notifi-receiverOnline', roomId_inDatabase => {
-        // receiver auto join a RoomId (in database) 
-        client.join(roomId_inDatabase);
+    // // receiver accept auto
+    // client.on('client-server-notifi-receiverOnline', roomId_inDatabase => {
+    //     // receiver auto join a RoomId (in database) 
+    //     client.join(roomId_inDatabase);
 
-        // receiver send to sender a message to notifi receiver online
-        client.to(roomId_inDatabase).emit('server-client-notifi-receiverOnline', roomId_inDatabase);
-    })
+    //     // receiver send to sender a message to notifi receiver online
+    //     client.to(roomId_inDatabase).emit('server-client-notifi-receiverOnline', roomId_inDatabase);
+    // })
 
-    // when user offline, they send notification to the other user in a RoomId (in database) 
-    client.on('client-server-UserOffline', roomId_inDatabase => {
-        client.to(roomId_inDatabase).emit('server-client-UserOffline', {})
-    })
+    // // when user offline, they send notification to the other user in a RoomId (in database) 
+    // client.on('client-server-UserOffline', roomId_inDatabase => {
+    //     client.to(roomId_inDatabase).emit('server-client-UserOffline', {})
+    // })
 
-    client.on('client-server-sendMessage', messageOptions => {
-        let messageOptions_1 = messageOptions;
-        messageOptions_1.Messages_Id = uuidv4();
-        myQuery.addMessage(messageOptions_1, (err, data) => {
-            if (err) {
-                console.error(err)
-            } else {
-                client.to(messageOptions.Messages_ChatRoom_Id).emit('server-client-sendMessage', messageOptions_1)
-            }
-        })
-    })
+    // client.on('client-server-sendMessage', messageOptions => {
+    //     let messageOptions_1 = messageOptions;
+    //     messageOptions_1.Messages_Id = uuidv4();
+    //     myQuery.addMessage(messageOptions_1, (err, data) => {
+    //         if (err) {
+    //             console.error(err)
+    //         } else {
+    //             client.to(messageOptions.Messages_ChatRoom_Id).emit('server-client-sendMessage', messageOptions_1)
+    //         }
+    //     })
+    // })
 
-    client.on('client-server-message', (data) => {
-        // console.log(data)
-        client.broadcast.emit("server-client-message", data)
-    })
+    // client.on('client-server-message', (data) => {
+    //     // console.log(data)
+    //     client.broadcast.emit("server-client-message", data)
+    // })
 
     // client.broadcast.emit('hello', 'to all clients except sender');
     client.on('disconnect', async () => { 

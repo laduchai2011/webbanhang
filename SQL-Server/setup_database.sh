@@ -5,7 +5,7 @@
 
 for i in {1..50};
 do
-    /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 20111995Hai -d master -i setup.sql
+    /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 2011Hai -d master -i setup.sql
     if [ $? -eq 0 ]
     then
         echo "setup.sql completed"

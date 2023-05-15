@@ -9,6 +9,8 @@ COPY entrypoint.sh entrypoint.sh
 
 RUN chmod +x entrypoint.sh
 
+RUN chmod +x setup_database.sh
+
 CMD /bin/bash ./entrypoint.sh
 # RUN ./setup_database.sh & ./opt/mssql/bin/sqlservr 
 # CMD /bin/bash ./setup_database.sh & ./opt/mssql/bin/sqlservr 

@@ -12,8 +12,8 @@ const MessageContainerHeader = ({onData}) => {
     const navigate = useNavigate();
 
     const handleAllMessages = () => {
-        navigate(`/webChat`, { state: {data: 'webchat123456'}});
-        // navigate(`/webChat/${USERINFOR.User_Id}`, { state: {data: 'webchat123456'}});
+        // navigate(`/webChat`, { state: {data: 'webchat123456'}});
+        navigate(`/webChat/${USERINFOR.User_Id}`, { state: {data: 'webchat123456'}});
     }
 
     const load_MessageBoxHeader = onData && onData.map((data, index) => {

@@ -29,12 +29,16 @@ import MessageBox from './component/MessageBox';
 
 // main work: join roomId (in database) to chat
 // other work: get message from database, get information ....
-const MiniInboxBox = ({index, onChatRoomId}) => {
+const MiniInboxBox = ({index, onReceive, setReceiveId, onChatRoomId, setChatRoomsId}) => {
     const [message, setMessage] = useState([]);
     const pageIndex = useRef(1);
     const loadMessage = useRef(false);
     const receiverOnline = useRef(false);
 
+    const [name, setName] = useState({
+        First_Name: '',
+        Last_Name: ''
+    });
 
     const pageSize = 24;
     const dataLen = useRef(pageSize);
@@ -76,6 +80,9 @@ const MiniInboxBox = ({index, onChatRoomId}) => {
                     setMessage(pre => {
                         return arr.concat(pre);
                     })
+
+                    // set name for mini chat box
+                    getUserName(onReceive);
                 }
             }).catch(err => console.error(err));
         }
@@ -220,6 +227,41 @@ const MiniInboxBox = ({index, onChatRoomId}) => {
         }
     }
    
+    const handleDeleteRoomId = () => {
+        setChatRoomsId(pre => {
+            // delete roomid
+            return pre.filter(function(value, index, arr){
+                return value !== onChatRoomId;
+            })
+        })
+
+        setReceiveId(pre => {
+            // delete receiver id
+            return pre.filter(function(value, index, arr){
+                return value !== onReceive;
+            })
+        })
+    }
+
+    const getUserName = (userId) => {
+        axios({
+            method: 'get',
+            url: `${SERVERADDRESS}/userName?userId=${userId}`,
+            headers: {
+                Authorization: `${TOKENENCODESTRING} ${TOKEN}`
+            }
+        }).then(res => {
+            if (res.data.state) {
+                let name_1 = {
+                    First_Name: res.data.data.recordset[0].First_Name,                    
+                    Last_Name: res.data.data.recordset[0].Last_Name
+                }
+                setName(name_1);
+            }
+        }).catch(err => {
+            console.error(err);
+        })
+    }
 
     const LoadMessage = message.map((data, index) => {
         return (
@@ -236,9 +278,9 @@ const MiniInboxBox = ({index, onChatRoomId}) => {
                     <div className='MiniInboxBox-top'>
                         <div>
                             <div className='MiniInboxBox-top-name'>
-                                {onChatRoomId}
+                                {`${name.First_Name} ${name.Last_Name}`}
                             </div>
-                            <div className='MiniInboxBox-top-delete'>
+                            <div className='MiniInboxBox-top-delete' onClick={() => handleDeleteRoomId()}>
                                 <div>X</div>
                             </div>
                         </div>

@@ -36,7 +36,7 @@ services:
     volumes:
       - redisvolume:/data
     ports:
-      - 6379:6379
+      - "${REDISCONFIG_LOCALPORT}:${REDISCONFIG_PORT}"
 #-------------------------------------------------
 
 #------------------SQL SERVER---------------------

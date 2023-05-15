@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import './styles.css';
 
-const UserObj = ({onData}) => {
+const UserObj = () => {
     return (
         <div className="UserObj">
             <img src='https://i1.sndcdn.com/avatars-000338281488-2kmgtx-t500x500.jpg' alt='avatar'/>

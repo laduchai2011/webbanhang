@@ -460,6 +460,27 @@ router.get('/cart', JwtVerify, (req, res) => {
     }
 });
 
+router.put('/chat', JwtVerify, (req, res) => {
+    const type = req.query.type;
+    switch(type) {
+        case 'updateMessageState':
+            let updateMessageStateOptions = {
+                User_Id: req.query.userId,
+                ChatRoom_Id: req.query.chatRoomId
+            }
+            myQuery.updateMessageState(updateMessageStateOptions, (err, data) => {
+                handleData(res, err, data);
+            })
+            break;
+
+        default:
+            return res.send({
+                state: false,
+                err: {message: 'Invalid parameter (chat)'}
+            });
+    }
+})
+
 router.get('/chat', JwtVerify, (req, res) => {
     const type = req.query.type;
     switch(type) {
@@ -517,16 +538,6 @@ router.get('/chat', JwtVerify, (req, res) => {
                 ChatRoom_Id: req.query.chatRoomId
             }
             myQuery.getMessages_notSeen(messages_notSeenOptions, (err, data) => {
-                handleData(res, err, data);
-            })
-            break;
-
-        case 'updateMessageState':
-            let updateMessageStateOptions = {
-                User_Id: req.query.userId,
-                ChatRoom_Id: req.query.chatRoomId
-            }
-            myQuery.updateMessageState(updateMessageStateOptions, (err, data) => {
                 handleData(res, err, data);
             })
             break;

@@ -25,6 +25,7 @@ import Blog from './component/moreComponent/Blog';
 import AddProduct from './component/Product/AddProduct';
 import SignupCompany from './component/Company/SignupCompany';
 import ProductDetail from './component/Product/detailComponents/ProductInforBlock/ProductDetail';
+import WebChat from './component/Inbox/WebChat';
 
 
 
@@ -45,6 +46,7 @@ function App() {
         <Route exact path='/login' element={<Login />} />
         <Route exact path='/signup' element={<Signup />} />
         <Route exact path='/profile/:id' element={<Profile />} />
+        <Route exact path='/webChat/:id' element={<WebChat />} />
 
         {/* more component */}
         <Route exact path='/recommend' element={<Recommend />} />

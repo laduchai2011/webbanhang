@@ -19,7 +19,7 @@ const MessageBoxHeader = ({onData}) => {
     const handleInbox = () => {
         reduxStore.dispatch({ type: 'joinInbox', data: {chatRooms_Id_inDatabase: onData.ChatRoom_Id}});
         axios({
-            method: 'get',
+            method: 'put',
             url: `${SERVERADDRESS}/chat?type=updateMessageState&userId=${USERINFOR.User_Id}&chatRoomId=${onData.ChatRoom_Id}`,
             headers: {
                 Authorization: `${TOKENENCODESTRING} ${TOKEN}`

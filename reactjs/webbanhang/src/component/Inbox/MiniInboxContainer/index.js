@@ -35,6 +35,7 @@ const MiniInboxContainer = () => {
     // the receiver role, user will listen a inbox require on room(socketid), 
     // then user will receive a roomid in database, then user will decide to talk or not
     const [chatRoomsId, setChatRoomsId] = useState([]);
+    const [receiveId, setReceiveId] = useState([]);
 
     // the receiver role, user will transfer back-ground mode, receive message will store into queue variable
     // user will chat directly (in component MiniInboxBox) 
@@ -106,6 +107,9 @@ const MiniInboxContainer = () => {
                     ChatRooms_User1_Id: reduxStore.getState().data.sender,
                     ChatRooms_User2_Id: reduxStore.getState().data.receiver
                 }
+
+                setReceiveId(pre => pre.concat([reduxStore.getState().data.receiver]));
+
                 setupChat().then(() => {
                     // console.log('setupChat')
                     return getChatRoom(chatRoomsOptions);
@@ -305,7 +309,7 @@ const MiniInboxContainer = () => {
     let miniInboxBoxs = chatRoomsId.map((data, index) => {
         return (
             <div key={index}>   
-                <MiniInboxBox index={index} onChatRoomId={data} />
+                <MiniInboxBox index={index} onReceive={receiveId[index]} setReceiveId={setReceiveId} onChatRoomId={data} setChatRoomsId={setChatRoomsId}/>
             </div>
         )
     })

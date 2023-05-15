@@ -1,22 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './styles.css';
 
-import { useParams, useLocation } from 'react-router-dom';
+// import { useParams, useLocation } from 'react-router-dom';
 import { ThemeContext } from './Context';
 
 import List from './component/List';
 import MessageContainer from './component/MessageContainer';
 
 const WebChat = () => {
-    const { id } = useParams();
-    const { state } = useLocation();
-    const { data } = state || {};
+    // const { id } = useParams();
+    // const { state } = useLocation();
+    // const { data } = state || {};
 
-    console.log(id, data)
+    const [roomId, setRoomId] = useState();
+
+    // console.log(id, data)
 
 
     return (
-        <ThemeContext.Provider value={{id: id}}>
+        <ThemeContext.Provider value={{roomId, setRoomId}}>
             <div className="WebChat">
                 <div>
                     <div className='webChat-Left'>
