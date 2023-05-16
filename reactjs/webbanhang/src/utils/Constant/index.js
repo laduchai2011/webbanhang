@@ -1,6 +1,6 @@
 // export const SERVERADDRESS = `${process.env.REACT_APP_API_KEY}/api`;
-export const SERVERADDRESS = 'http://localhost/api';
-export const SERVERSOCKET = 'http://localhost';
+export const SERVERADDRESS = '/api';
+export const SERVERSOCKET = '';
 // export const SERVERSOCKET = `${process.env.REACT_APP_CHATAPI_KEY}`
 
 // encode token
